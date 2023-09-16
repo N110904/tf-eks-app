@@ -34,7 +34,7 @@ resource "kubernetes_deployment" "web_deployment" {
 
       spec {
         container {
-          image = "nginx:latest"
+          image = "bashacse/angular:k8s_poc"
           name  = "web-container"
 
           port {
@@ -43,7 +43,8 @@ resource "kubernetes_deployment" "web_deployment" {
 
           env {
             name = "API_URL"
-            value = "api-service.default.svc.cluster.local:8080"
+            ##value = "http://api-service.default.svc.cluster.local:8080"
+            value = "http://a9f39214ada2a43c2b0902beb331790d-31329889.us-east-1.elb.amazonaws.com"
           }  
           
           resources {

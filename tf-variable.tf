@@ -39,3 +39,13 @@ variable "api_ingress_forward_port" {
   description = "api port to foward traffic from ingress"
   type = number
 }
+
+variable "api_ingress_class"{
+  default = "api-ingress-class"
+  description = "api ingress class name"
+}
+
+variable "web_ingress_class"{
+  default = "web-ingress-class"
+  description = "web ingress class name"
+}

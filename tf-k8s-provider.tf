@@ -7,28 +7,28 @@ terraform {
   }
 }
 
-# provider "kubernetes" {
-#   config_path = "~/.kube/config"  # Path to your Kubernetes config file in case of local setup
-# }
+ provider "kubernetes" {
+   config_path = "~/.kube/config"  # Path to your Kubernetes config file in case of local setup
+ }
 
-# provider "helm" {
-#   kubernetes {
-#     config_path = "~/.kube/config"  # Path to your Kubernetes config file in case of local setup
-#   }
-# }
+ provider "helm" {
+   kubernetes {
+     config_path = "~/.kube/config"  # Path to your Kubernetes config file in case of local setup
+   }
+ }
 
-provider "helm" {
-  kubernetes {
-    host                   = data.aws_eks_cluster.cluster.endpoint
-    cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-    token                  = data.aws_eks_cluster_auth.cluster.token
+#provider "helm" {
+#  kubernetes {
+#    host                   = data.aws_eks_cluster.cluster.endpoint
+#    cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+#    token                  = data.aws_eks_cluster_auth.cluster.token
+#
+#  }
+#}
 
-  }
-}
-
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-  token                  = data.aws_eks_cluster_auth.cluster.token
-
-}
+#provider "kubernetes" {
+#  host                   = data.aws_eks_cluster.cluster.endpoint
+#  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+#  token                  = data.aws_eks_cluster_auth.cluster.token
+#
+#}

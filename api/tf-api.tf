@@ -34,7 +34,7 @@ resource "kubernetes_deployment" "api_deployment" {
 
       spec {
         container {
-          image = "nginx:latest"
+          image = "bashacse/springboot:rds-mysql"
           name  = "api-container"
 
           port {

@@ -9,4 +9,8 @@ resource "helm_release" "nginx-ingress-controller" {
     value = "LoadBalancer"
   }
 
+  set {
+    name  = "controller.ingressClass"
+    value = var.ingress_class # Set your desired IngressClass name here
+  }
 }
